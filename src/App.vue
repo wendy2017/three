@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <el-button>展示three.js</el-button>
+
     <div id="container"></div>
+    <line-sphere></line-sphere>
     <geometry-cube></geometry-cube>
   </div>
 </template>
@@ -11,6 +13,7 @@ import * as Three from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import GeometryCube from "./components/GeometryCube/index.vue";
+import LineSphere from "./components/LineSphere/index.vue";
 
 export default {
   name: "App",
@@ -22,7 +25,7 @@ export default {
       mesh: null,
     };
   },
-  components: { GeometryCube },
+  components: { GeometryCube, LineSphere },
 
   methods: {
     init: function() {
