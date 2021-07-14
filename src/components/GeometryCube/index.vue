@@ -14,7 +14,7 @@ export default {
       scene: null,
       camera: null,
       renderer: null,
-      mesh: null,
+      mesh: null
     };
   },
   props: {},
@@ -25,7 +25,12 @@ export default {
   },
   methods: {
     init() {
-      this.camera = new Three.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000);
+      this.camera = new Three.PerspectiveCamera(
+        70,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
       this.camera.position.z = 1;
 
       this.scene = new Three.Scene();
@@ -57,8 +62,8 @@ export default {
       this.mesh.rotation.y += 0.01;
 
       this.renderer.render(this.scene, this.camera);
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -22,13 +22,13 @@ export default {
       scene: null,
       camera: null,
       renderer: null,
-      mesh: null,
+      mesh: null
     };
   },
   components: { GeometryCube, LineSphere },
 
   methods: {
-    init: function() {
+    init: function () {
       let container = document.getElementById("container");
 
       this.camera = new Three.PerspectiveCamera(
@@ -58,24 +58,24 @@ export default {
       this.renderer.setSize(container.clientWidth, container.clientHeight);
       container.appendChild(this.renderer.domElement);
     },
-    animate: function() {
+    animate: function () {
       this.mesh.rotation.x += 0.01;
       this.mesh.rotation.y += 0.02;
       this.renderer.render(this.scene, this.camera);
       requestAnimationFrame(this.animate);
     },
-    control: function() {
+    control: function () {
       new OrbitControls(this.camera, this.renderer.domElement);
 
       // let controls = new OrbitControls(this.camera,this.renderer.domElement)
       // controls.addEventListener('change',this.animate)
-    },
+    }
   },
   mounted() {
     this.init();
     this.animate();
     this.control();
-  },
+  }
 };
 </script>
 

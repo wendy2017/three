@@ -1,7 +1,7 @@
 <template>
   <div>
     three.js demo- lines spheres
-    <div id="container-line" style="width:600px;height:600px;"></div>
+    <div id="container-line" style="width: 600px; height: 600px"></div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
       camera: null,
       renderer: null,
       r: 450,
-      mouseY:0
+      mouseY: 0
     };
   },
   mounted() {
@@ -49,7 +49,7 @@ export default {
         [3.0, 0xaaaaaa, 0.75],
         [3.5, 0xffffff, 0.5],
         [4.5, 0xffffff, 0.25],
-        [5.5, 0xffffff, 0.125],
+        [5.5, 0xffffff, 0.125]
       ];
 
       for (let i = 0; i < parameters.length; ++i) {
@@ -57,7 +57,7 @@ export default {
 
         const material = new Three.LineBasicMaterial({
           color: p[1],
-          opacity: p[2],
+          opacity: p[2]
         });
 
         const line = new Three.LineSegments(geometry, material);
@@ -77,10 +77,10 @@ export default {
       this.renderer.setSize(container.clientWidth, container.clientHeight);
       container.appendChild(this.renderer.domElement);
 
-      setInterval(function() {
+      setInterval(function () {
         const geometry = this.createGrometry();
 
-        this.scene.traverse(function(object) {
+        this.scene.traverse(function (object) {
           if (object.isLine) {
             object.geometry.dispose();
             object.geometry = geometry;
@@ -93,7 +93,8 @@ export default {
       this.render();
     },
     render() {
-      this.camera.position.y += (-this.mouseY + 200 - this.camera.position.y) * 0.05;
+      this.camera.position.y +=
+        (-this.mouseY + 200 - this.camera.position.y) * 0.05;
       this.camera.lookAt(this.scene.position);
 
       this.renderer.render(this.scene, this.camera);
@@ -136,10 +137,13 @@ export default {
         vertices.push(vertex.x, vertex.y, vertex.z);
       }
 
-      geometry.setAttribute("position", new Three.Float32BufferAttribute(vertices, 3));
+      geometry.setAttribute(
+        "position",
+        new Three.Float32BufferAttribute(vertices, 3)
+      );
       return geometry;
-    },
-  },
+    }
+  }
 };
 </script>
 
