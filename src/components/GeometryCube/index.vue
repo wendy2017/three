@@ -1,6 +1,8 @@
 <template>
   <div>
     three.js demo geometry cube
+    <div id="container-geometrycube" style="width: 600px; height: 600px"></div>
+
     <!-- <img src="../../assets/crate.gif" alt=""> -->
   </div>
 </template>
@@ -25,9 +27,11 @@ export default {
   },
   methods: {
     init() {
+      let container = document.getElementById("container-geometrycube");
+
       this.camera = new Three.PerspectiveCamera(
         70,
-        window.innerWidth / window.innerHeight,
+        container.clientWidth / container.clientHeight,
         0.1,
         1000
       );
@@ -52,8 +56,8 @@ export default {
 
       this.renderer = new Three.WebGLRenderer({ antialias: true });
       this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(this.renderer.domElement);
+      this.renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(this.renderer.domElement);
     },
     animate() {
       requestAnimationFrame(this.animate);

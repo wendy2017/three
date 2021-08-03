@@ -77,7 +77,7 @@ export default {
       this.renderer.setSize(container.clientWidth, container.clientHeight);
       container.appendChild(this.renderer.domElement);
 
-      setInterval(function () {
+      setInterval(() => {
         const geometry = this.createGrometry();
 
         this.scene.traverse(function (object) {
