@@ -20,6 +20,12 @@
     <template v-if="currentChart === 'geometryCube'">
       <geometry-cube></geometry-cube>
     </template>
+    <template v-if="currentChart === 'house'">
+      <house></house>
+    </template>
+    <template v-if="currentChart === 'panoramicHouse'">
+      <panoramic-house></panoramic-house>
+    </template>
   </div>
 </template>
 
@@ -27,6 +33,8 @@
 import GeometryCube from "./components/GeometryCube/index.vue";
 import LineSphere from "./components/LineSphere/index.vue";
 import BaseThree from "./components/BaseThree/index.vue";
+import House from "./components/House/index.vue";
+import PanoramicHouse from "./components/PanoramicHouse/index.vue";
 
 export default {
   name: "App",
@@ -52,12 +60,16 @@ export default {
         {
           label: "house",
           value: "house"
+        },
+        {
+          label: "panoramicHouse",
+          value: "panoramicHouse"
         }
       ],
       currentChart: ""
     };
   },
-  components: { GeometryCube, LineSphere, BaseThree },
+  components: { GeometryCube, LineSphere, BaseThree, House, PanoramicHouse },
 
   methods: {
     handleChnage(val) {
