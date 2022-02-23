@@ -1,7 +1,10 @@
 <template>
   <div>
     panoramic house dd
-    <div id="panoramic-house-con" style="width: 1000px; height: 1000px"></div>
+    <div
+      id="panoramic-house-con"
+      style="width: 500px; height: 500px"
+    ></div>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
       scene: null,
       camera: null,
       renderer: null,
-      mesh: null
+      mesh: null,
     };
   },
   mounted() {
@@ -38,15 +41,16 @@ export default {
       // const geometry = new Three.SphereGeometry(1, 10, 10);
       // const material = new Three.MeshBasicMaterial({ color: 0xff0000 });
       // this.mesh = new Three.Mesh(geometry, material);
-      const imgUrl = require("../../assets/images/panoramicHouse/house.webp");
+      const imgUrl = require("../../assets/images/panoramicHouse/livingRoom.jpg");
       const texture = new Three.TextureLoader().load(imgUrl);
       const material = new Three.MeshBasicMaterial({ map: texture });
-      const geometry = new Three.SphereGeometry(1, 10, 10);
-      // const geometry = new Three.SphereGeometry(10, 50, 50);
-      this.mesh = new Three.Mesh(geometry, material);
+      // const geometry = new Three.BoxGeometry(10, 10, 10);
+      const geometry = new Three.SphereGeometry(0.6, 10, 10);
 
+      this.mesh = new Three.Mesh(geometry, material);
+      this.mesh.geometry.scale(10, 10, -10);
       this.scene.add(this.mesh);
-      this.scene.add(new Three.AxisHelper(1000));
+      // this.scene.add(new Three.AxisHelper(1000));
 
       this.renderer = new Three.WebGLRenderer();
       this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -68,8 +72,8 @@ export default {
     animate() {
       this.render();
       requestAnimationFrame(this.animate);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -47,7 +47,7 @@ export default {
       this.scene.add(this.camera);
 
       let geometry = new PlaneGeometry(20000, 20000);
-      const url = require("../../assets/images/room/grass.jpg");
+      const url = require("../../assets/images/house/room/grass.jpg");
       const groundTexture = new TextureLoader().load(url);
       groundTexture.wrapS = groundTexture.wrapT = RepeatWrapping;
       groundTexture.repeat.set(50, 50);
