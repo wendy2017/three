@@ -3,7 +3,10 @@
     <el-button>展示three.js</el-button>
 
     <!-- <div id="container"></div> -->
-    <el-select @change="handleChnage" v-model="currentChart">
+    <el-select
+      @change="handleChnage"
+      v-model="currentChart"
+    >
       <el-option
         v-for="item in allCharts"
         :key="item.value"
@@ -35,6 +38,12 @@ import LineSphere from "./components/LineSphere/index.vue";
 import BaseThree from "./components/BaseThree/index.vue";
 import House from "./components/House/index.vue";
 import PanoramicHouse from "./components/PanoramicHouse/index.vue";
+// test
+// test master
+
+// test  第二次提交
+
+// test 别人的提交
 
 export default {
   name: "App",
@@ -47,26 +56,26 @@ export default {
       allCharts: [
         {
           label: "base",
-          value: "base"
+          value: "base",
         },
         {
           label: "lineSphere",
-          value: "lineSphere"
+          value: "lineSphere",
         },
         {
           label: "geometryCube",
-          value: "geometryCube"
+          value: "geometryCube",
         },
         {
           label: "house",
-          value: "house"
+          value: "house",
         },
         {
           label: "panoramicHouse",
-          value: "panoramicHouse"
-        }
+          value: "panoramicHouse",
+        },
       ],
-      currentChart: ""
+      currentChart: "",
     };
   },
   components: { GeometryCube, LineSphere, BaseThree, House, PanoramicHouse },
@@ -77,13 +86,13 @@ export default {
     },
     init: function () {},
     animate: function () {},
-    control: function () {}
+    control: function () {},
   },
   mounted() {
     this.init();
     this.animate();
     this.control();
-  }
+  },
 };
 </script>
 
